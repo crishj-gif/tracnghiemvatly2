@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ôn Luyện Vật Lý Đại Cương II</title>
+    <!-- Tải Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tải Font Inter -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .image-request {
+            color: #10b981; /* Màu xanh lá nổi bật */
+            font-style: italic;
+            font-weight: 500;
+            margin-top: 8px;
+            display: block;
+            padding: 4px;
+            border-left: 3px solid #10b981;
+            background-color: #ecfdf5;
+        }
+        .phone-link {
+            background-color: #25D366; /* WhatsApp Green / Vibrant Green */
+            color: white;
+        }
+        .phone-link:hover {
+            background-color: #128C7E;
+        }
+
+        .instagram-link {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white;
+            box-shadow: 0 4px 10px rgba(220, 39, 67, 0.4); /* Shadow hồng nhẹ */
+        }
+        .instagram-link:hover {
+            opacity: 0.9;
+        }
+
+        .facebook-link {
+            background-color: #1877F2; /* Facebook Blue */
+            color: white;
+        }
+        .facebook-link:hover {
+            background-color: #166FE5;
+        }
+        .logo-container {
+    position: absolute; /* Rất quan trọng: định vị tuyệt đối */
+    top: 0;             /* Đặt ở mép trên */
+    left: 0;            /* Đặt ở mép trái */
+    width: 150px;       /* Chiều rộng */
+    height: 150px;      /* Chiều cao */
+    z-index: 1000;      /* Đảm bảo logo luôn nằm trên cùng */
+}
+
+.logo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Giữ tỷ lệ ảnh */
+}
+
+
+}
+    </style>
+    <!-- Tải KaTeX CSS để hiển thị công thức toán học đẹp và chính xác -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+</head>
+<body class="p-4 sm:p-8">
+     <div class="logo-container">
+    <img src="https://upload.wikimedia.org/wikipedia/vi/0/0e/Logo_MTA_new.png" alt="Logo MTA">
+</div>
+    
+
+    <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-2xl p-6 sm:p-10">
+        <header class="mb-8 border-b pb-4">
+            <h1 class="text-3xl font-extrabold text-blue-800 text-center">ÔN LUYỆN VẬT LÝ ĐẠI CƯƠNG II</h1>
+            
+        </header>
+
+        <div id="quiz-container" class="space-y-10">
+            <!-- Questions will be rendered here -->
+        </div>
+
+        <footer class="bg-gray-900 text-white py-8 border-t border-gray-800 mt-8">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+        
+        <div class="design-by-container mb-6 md:mb-0 text-center md:text-left">
+            <p class="design-by-text text-sm text-gray-400">
+                Design by <b class="text-white font-semibold tracking-wider">Sơn Cris</b>
+            </p>
+            <p class="text-xs text-gray-600 mt-1">&copy; 2025 Vật lý đại cương 2</p>
+        </div>
+
+        <div class="contact-links-container flex flex-wrap justify-center gap-3 sm:gap-4">
+            
+            <a href="tel:0327208690" title="Gọi 0327208690" class="footer-link phone-link flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium transition duration-300 ease-in-out transform hover:scale-105 shadow-md bg-green-600 hover:bg-green-700 text-white">
+                <svg class="footer-icon w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M164.9 24.6c-48 0-87.1 39.1-87.1 87.1v278.7c0 48 39.1 87.1 87.1 87.1h182.2c48 0 87.1-39.1 87.1-87.1V111.7c0-48-39.1-87.1-87.1-87.1H164.9zM256 464c-15.4 0-27.9-12.5-27.9-27.9s12.5-27.9 27.9-27.9 27.9 12.5 27.9 27.9-12.5 27.9-27.9 27.9zm135.2-348.8H122.9V392h268.3V115.2z"/></svg>
+                <span>0327208690</span>
+            </a>
+            
+            <a href="https://www.instagram.com/son_cris3012/" target="_blank" title="Instagram" class="footer-link instagram-link flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium transition duration-300 ease-in-out transform hover:scale-105 shadow-md bg-gradient-to-r from-pink-500 to-orange-500 hover:from-pink-600 hover:to-orange-600 text-white">
+                <svg class="footer-icon w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 12.6C99.2-22.3-22.3 99.2 12.6 224.1l11.2 11.2c19.3 19.3 46.4 30.1 74.5 30.1h145.4c28.1 0 55.2-10.8 74.5-30.1l11.2-11.2C485.6 99.2 364.1-22.3 239.1 12.6L224.1 27.7l-15 42.1c-14.4 40.3-43.7 70.8-82.6 86.6L48.2 168.1C25.3 177.1 8.5 197.6 8.5 221v82c0 23.4 16.8 43.9 39.7 52.9l84.4 32.1c38.9 15.8 68.2 46.3 82.6 86.6l15 42.1 15-42.1c14.4-40.3 43.7-70.8 82.6-86.6l84.4-32.1c22.9-9 39.7-29.5 39.7-52.9v-82c0-23.4-16.8-43.9-39.7-52.9l-84.4-32.1c-38.9-15.8-68.2-46.3-82.6-86.6l-15-42.1L224.1 27.7zM169.1 296.8c-29.4-29.4-29.4-77 0-106.4s77-29.4 106.4 0 29.4 77 0 106.4-77 29.4-106.4 0zm53.2-61.9c-15.5-15.5-15.5-40.7 0-56.2s40.7-15.5 56.2 0 15.5 40.7 0 56.2-40.7 15.5-56.2 0zm117.8 7.3c15.2-15.2 15.2-39.8 0-55s-39.8-15.2-55 0c-15.2 15.2-15.2 39.8 0 55s39.8 15.2 55 0z"/></svg>
+                <span>Instagram</span>
+            </a>
+            
+            <a href="https://web.facebook.com/sonsadboiz.12" target="_blank" title="Facebook" class="footer-link facebook-link flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium transition duration-300 ease-in-out transform hover:scale-105 shadow-md bg-blue-600 hover:bg-blue-700 text-white">
+                <svg class="footer-icon w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.37h-51.2v-60.3h51.2v-44.4a76.43 76.43 0 0 1 76.4-76.4h37.7v59.7h-37.7c-25.1 0-25.1 9.2-25.1 25.4v40.7h63.2l-10.1 60.3h-53.1V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"/></svg>
+                <span>Facebook</span>
+            </a>
+
+            <a href="https://www.tiktok.com/@chubodoihaybuon" target="_blank" title="TikTok" class="footer-link tiktok-link flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium transition duration-300 ease-in-out transform hover:scale-105 shadow-md bg-black hover:bg-gray-800 border border-gray-700 text-white">
+                <svg class="footer-icon w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25V349.38A162.55 162.55 0 1 1 185 188.31V278.2a74.62 74.62 0 1 0 52.23 71.18V0l88 0a121.18 121.18 0 0 0 1.86 22.17h0A122.18 122.18 0 0 0 448 209.91Z"/></svg>
+                <span>TikTok</span>
+            </a>
+
+        </div>
+    </div>
+</footer>
+
+    </div>
+
+    <!-- Tải KaTeX JS -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+    
+    <script>
+        // Data for all 45 questions extracted from the PDF
+        const physicsQuestions = [
+            // ====================================================================================================================
+            // ĐỀ 1 (Câu 1 - 15)
+            // ====================================================================================================================
+            {
+                test: 1, questionNumber: 1,
+                question: "Một tụ phẳng (giữa hai bản tụ lúc đầu là không khí) được đấu với một ắc qui để nạp điện. Trong khi nạp điện, người ta đưa một tấm điện môi vào lấp đầy hoàn toàn khoảng trống giữa hai bản tụ. Trong những nhận định sau đây nhận định nào sai:",
+                options: [
+                    { text: "Hiệu điện thế giữa hai bản tụ không đổi", isCorrect: false },
+                    { text: "Cường độ điện trường giữa các bản không đổi", isCorrect: false },
+                    { text: "Điện tích của tụ tăng", isCorrect: false },
+                    { text: "Năng lượng dự trữ trong tụ không đổi", isCorrect: true }
+                ],
+                solution: "Do tụ được nối với ắc qui nên hiệu điện thế giữa hai bản tụ luôn không đổi $\\small U=\\text{const}$. Cường độ điện trường: $\\small E=U/d$. Khi có chất điện môi, điện dung của tụ $\\small C$ sẽ tăng $\\small \\epsilon$ lần. Điện tích $\\small Q=C'U$ sẽ tăng. Năng lượng của tụ điện $\\small W=\\frac{1}{2} C U^2$ mà $\\small C$ thay đổi nên $\\small W$ phải thay đổi. Nhận định 'Năng lượng dự trữ trong tụ không đổi' là sai."
+            },
+            {
+                test: 1, questionNumber: 2,
+                question: "Một tụ điện phẳng có diện tích bản cực là $\\small S$ và có khoảng cách giữa hai bản là $\\small d$, giữa hai bản tụ là không khí và tụ được nối với nguồn ngoài có hiệu điện thế không đổi. Người ta đưa vào giữa hai bản cực của tụ điện một tấm kim loại có chiều dày $\\small d'<d$. Điện tích của tụ điện sẽ:",
+                options: [
+                    { text: "Không đổi", isCorrect: false },
+                    { text: "Tăng lên", isCorrect: true },
+                    { text: "Giảm đi", isCorrect: false },
+                    { text: "Giảm đi đến một giá trị không đổi nào đó.", isCorrect: false }
+                ],
+                solution: "Khi đưa tấm kim loại $\\small d'$ vào, tụ điện có thể coi như là tụ không khí có khoảng cách giữa hai bản cực là $\\small d-d'$. Khoảng cách giữa hai bản tụ giảm $\\small (d' < d) \\implies$ điện dung $\\small C_{\\text{mới}} = \\frac{\\epsilon_0 S}{d-d'}$ tăng. Vì nguồn ngoài có hiệu điện thế không đổi $\\small U=\\text{const}$ nên điện tích của tụ điện $\\small Q = C_{\\text{mới}} U$ sẽ tăng lên."
+            },
+            {
+                test: 1, questionNumber: 3,
+                question: "Cho hai mặt phẳng song song vô hạn mang điện đều trái dấu nhau mật độ điện mặt bằng nhau. Người ta lấp đầy giữa hai mặt phẳng đó một lớp điện môi dày $\\small d=4$ mm và có hằng số điện môi $\\small \\epsilon=6$. Hiệu điện thế giữa hai mặt phẳng là $\\small 1000$ V. Xác định mật độ điện tích liên kết trên bề mặt chất điện môi.",
+                options: [
+                    { text: "$1,11.10^{-5} \\text{ C/m}^2$", isCorrect: false },
+                    { text: "$2,23.10^{-5} \\text{ C/m}^2$", isCorrect: false },
+                    { text: "$3,45.10^{-5} \\text{ C/m}^2$", isCorrect: true },
+                    { text: "$4,12.10^{-5} \\text{ C/m}^2$", isCorrect: false }
+                ],
+                solution: "Mật độ điện tích liên kết: $\\small \\sigma' = \\frac{\\epsilon-1}{\\epsilon} \\sigma$. Mật độ điện mặt trên hai bản cực: $\\small \\sigma = E \\epsilon_{0} \\epsilon = \\frac{U}{d} \\epsilon \\epsilon_{0}$. Thay vào công thức $\\small \\sigma' = \\frac{(\\epsilon-1)\\epsilon_{0}U}{d}$. Thay số: $\\small \\sigma' = \\frac{(6-1) \\cdot (8.85\\cdot 10^{-12}) \\cdot 1000}{4 \\cdot 10^{-3}} \\approx 1.106 \\cdot 10^{-5} \\text{ C/m}^2$. (Chọn theo đáp án C trong PDF)."
+            },
+            {
+                test: 1, questionNumber: 4,
+                question: "Hai quả cầu kim loại bán kính $\\small 8$ cm và $\\small 5$ cm nối với nhau bằng một sợi dây dẫn có điện dung không đáng kể, và được tích một điện lượng $\\small Q=13.10^{-8}$ C. Tính điện tích của quả cầu có bán kính $\\small 8$ cm",
+                options: [
+                    { text: "$5.10^{-8} \\text{ C}$", isCorrect: false },
+                    { text: "$6.10^{-8} \\text{ C}$", isCorrect: false },
+                    { text: "$7.10^{-8} \\text{ C}$", isCorrect: false },
+                    { text: "$8.10^{-8} \\text{ C}$", isCorrect: true }
+                ],
+                solution: "Hai quả cầu nối với nhau nên có cùng điện thế $\\small V$. Điện tích tỉ lệ với bán kính: $\\small q_{1}=\\frac{r_{1}}{r_{1}+r_{2}}Q$. Điện tích trên quả cầu $\\small r_1=8 \\text{ cm}$ là: $\\small q_{1} = \\frac{8}{8+5} \\cdot 13 \\cdot 10^{-8} = 8 \\cdot 10^{-8} \\text{ C}$."
+            },
+            {
+                test: 1, questionNumber: 5,
+                question: "Xét một quả cầu đồng chất, bán kính $\\small R=6$ cm, tích điện $\\small Q=2.10^{-6}\\text{ C}$ (phân bố đều trong thể tích). Tính cường độ điện trường tại điểm $\\small M$ nằm cách tâm cầu một khoảng $\\small r=3$ cm.",
+                options: [
+                    { text: "$2,495.10^{6} \\text{ V/m}$", isCorrect: true },
+                    { text: "$3,495.10^{6} \\text{ V/m}$", isCorrect: false },
+                    { text: "$4,495.10^{6} \\text{ V/m}$", isCorrect: false },
+                    { text: "$5,495.10^{6} \\text{ V/m}$", isCorrect: false }
+                ],
+                solution: "Điểm $\\small M$ nằm trong quả cầu đồng chất nên áp dụng công thức: $\\small E=\\frac{kQr}{\\epsilon R^{3}}$. Với $\\small k=\\frac{1}{4\\pi\\epsilon_{0}} \\approx 9\\cdot 10^9 \\text{ N}\\cdot\\text{m}^2/\\text{C}^2$ và $\\small \\epsilon=1$. Thay số: $\\small E = 9\\cdot 10^9 \\cdot \\frac{(2\\cdot 10^{-6}) \\cdot 0.03}{1 \\cdot (0.06)^3} \\approx 2.5 \\cdot 10^6 \\text{ V/m}$."
+            },
+            {
+                test: 1, questionNumber: 6,
+                question: "Cho một đĩa tròn bán kính $\\small a$, tích điện đều với mật độ điện mặt $\\small \\sigma$. Cường độ điện trường tại một điểm trên trục của đĩa và cách tâm đĩa một đoạn $\\small b$ là:",
+                options: [
+                    { text: "$\\small E=\\frac{\\sigma}{2\\epsilon_{0}\\epsilon}(1-\\frac{a^{2}}{b^{2}})$", isCorrect: false },
+                    { text: "$\\small E=\\frac{\\sigma}{2\\epsilon_{0}\\epsilon}(1-\\frac{a}{b})$", isCorrect: false },
+                    { text: "$\\small E=\\frac{\\sigma}{2\\epsilon_{0}\\epsilon}(1-\\sqrt{\\frac{a}{b}})$", isCorrect: false },
+                    { text: "$\\small E=\\frac{\\sigma}{2\\epsilon_{0}\\epsilon}(1-\\frac{1}{\\sqrt{1+\\frac{a^{2}}{b^{2}}}})$", isCorrect: true }
+                ],
+                solution: "Cường độ điện trường trên trục đối xứng của đĩa tròn tích điện đều được tính bằng phương pháp tích phân, cho ra kết quả $\\small E=\\frac{\\sigma}{2\\epsilon_{0}\\epsilon}(1-\\frac{1}{\\sqrt{1+\\frac{a^{2}}{b^{2}}}})$."
+            },
+            {
+                test: 1, questionNumber: 7,
+                question: "Tính công cần thiết để dịch chuyển một điện tích $\\small q=10^{-7}\\text{ C}$ từ một điểm $\\small M$ cách quả cầu tích điện bán kính $\\small r=1$ cm một khoảng $\\small R_{1}=10$ cm đến một điểm $\\small N$ cách quả cầu một khoảng $\\small R_{2}=30$ cm. Biết quả cầu có mật độ điện mặt $\\small \\sigma=10^{-11}\\text{ C/cm}^2$.",
+                options: [
+                    { text: "$2,34.10^{-7} \\text{ J}$", isCorrect: false },
+                    { text: "$1,32.10^{-7} \\text{ J}$", isCorrect: false },
+                    { text: "$6,62.10^{-7} \\text{ J}$", isCorrect: true },
+                    { text: "$7,22.10^{-7} \\text{ J}$", isCorrect: false }
+                ],
+                solution: "Công cần thiết: $\\small A=q(V_{M}-V_{N})$. Với $\\small V=\\frac{Q}{4\\pi\\epsilon\\epsilon_{0}R'}$ và $\\small R'=r+R_{\\text{khoảng cách}}$. $\\small A=\\frac{qr^{2}\\sigma}{\\epsilon_{0}}(\\frac{1}{r+R_{1}}-\\frac{1}{r+R_{2}})$. Thay số $\\small r=0.01 \\text{ m}$, $\\small R_1=0.1 \\text{ m}$, $\\small R_2=0.3 \\text{ m}$, $\\small \\sigma=10^{-7} \\text{ C/m}^2$, $\\small q=10^{-7} \\text{ C}$ ta được $\\small A \\approx 6,62\\cdot 10^{-7} \\text{ J}$."
+            },
+            {
+                test: 1, questionNumber: 8,
+                question: "Một vòng tròn làm bằng một dây dẫn mảnh bán kính $\\small R=3$ cm mang điện tích $\\small q=5.10^{-8}$ C và được phân bố đều trên dây. Cường độ điện trường tại một điểm nằm trên trục của vòng dây và cách tâm một đoạn $\\small h=8$ cm là:",
+                options: [
+                    { text: "$7,34.10^{4} \\text{ V/m}$", isCorrect: false },
+                    { text: "$8,23.10^{4} \\text{ V/m}$", isCorrect: false },
+                    { text: "$5,76.10^{4} \\text{ V/m}$", isCorrect: true },
+                    { text: "$2,46.10^{4} \\text{ V/m}$", isCorrect: false }
+                ],
+                solution: "Cường độ điện trường: $\\small E=\\frac{qh}{4\\pi\\epsilon\\epsilon_{0}(R^{2}+h^{2})^{(\\frac{3}{2})}}$. Thay số $\\small R=0.03 \\text{ m}$, $\\small h=0.08 \\text{ m}$, $\\small q=5\\cdot 10^{-8} \\text{ C}$ và $\\small \\frac{1}{4\\pi\\epsilon_{0}} \\approx 9\\cdot 10^9$ ta có $\\small E \\approx 5,76\\cdot 10^{4} \\text{ V/m}$."
+            },
+            {
+                test: 1, questionNumber: 9,
+                question: "Cho tam giác đều $\\small ABC$ có cạnh $\\small a=3$ cm. Tại ba đỉnh của tam giác đặt các điện tích $\\small q_{A}=2.10^{-8}\\text{ C}$, $\\small q_{B}=3.10^{-8}\\text{ C}$, $\\small q_{C}=-3.10^{-8}\\text{ C}$. Hãy xác định lực tổng hợp lên điện tích đặt tại $\\small A$.",
+                options: [
+                    { text: "$2,99.10^{-3} \\text{ N}$", isCorrect: false },
+                    { text: "$3,99.10^{-3} \\text{ N}$", isCorrect: true },
+                    { text: "$4,99.10^{-3} \\text{ N}$", isCorrect: false },
+                    { text: "$5,99.10^{-3} \\text{ N}$", isCorrect: false }
+                ],
+                solution: "Lực tổng hợp $\\small \\vec{F} = \\vec{F}_{BA} + \\vec{F}_{CA}$. Do $\\small q_B$ dương và $\\small q_C$ âm, $\\small \\vec{F}_{BA}$ đẩy và $\\small \\vec{F}_{CA}$ hút, góc giữa hai lực là $\\small 60^{\\circ}$. $\\small F_{BA}=\\frac{q_{A}q_{B}}{4\\pi\\epsilon_{0}\\epsilon a^{2}}$ và $\\small F_{CA}=\\frac{q_{A}|q_{C}|}{4\\pi\\epsilon_{0}\\epsilon a^{2}}$. $\\small F=\\sqrt{F_{BA}^2 + F_{CA}^2 + 2 F_{BA} F_{CA} \\cos(60^{\\circ})}$."
+            },
+            {
+                test: 1, questionNumber: 10,
+                question: "Một điện tích điểm $\\small q=\\frac{2}{3}10^{-9}\\text{ C}$ nằm cách một sợi dây dài tích điện đều một khoảng $\\small r_{1}=4$ cm; dưới tác dụng của điện trường do sợi dây gây ra, điện tích dịch chuyển theo hướng đường sức điện trường đến khoảng cách $\\small r_{2}=2$ cm, khi đó lực điện trường thực hiện một công $\\small A=50.10^{-7}\\text{ J}$. Tính mật độ điện dài của dây.",
+                options: [
+                    { text: "$6.10^{-7} \\text{ C/m}^2$", isCorrect: true },
+                    { text: "$7.10^{-7} \\text{ C/m}^2$", isCorrect: false },
+                    { text: "$8.10^{-7} \\text{ C/m}^2$", isCorrect: false },
+                    { text: "$9.10^{-7} \\text{ C/m}^2$", isCorrect: false }
+                ],
+                solution: "Công mà lực điện trường thực hiện: $\\small A=\\frac{\\lambda q}{2\\pi\\epsilon\\epsilon_{0}}\\ln\\frac{r_{1}}{r_{2}}$. Mật độ điện dài $\\small \\lambda=\\frac{2\\pi\\epsilon\\epsilon_{0}A}{q\\ln\\frac{r_{1}}{r_{2}}}$. Thay số ta có $\\small |\\lambda| \\approx 6 \\cdot 10^{-7} \\text{ C/m}$."
+            },
+            {
+                test: 1, questionNumber: 11,
+                question: "Xét một electron chuyển động trong từ trường đều $\\small \\vec{B}$ sao cho phương của vận tốc $\\small \\vec{v}$ vuông góc với cảm ứng từ $\\small \\vec{B}$. Quỹ đạo của electron là:",
+                options: [
+                    { text: "Đường elip", isCorrect: false },
+                    { text: "Đường thẳng", isCorrect: false },
+                    { text: "Đường tròn", isCorrect: true },
+                    { text: "Đường xoắn ốc", isCorrect: false }
+                ],
+                solution: "Lực Lorentz $\\small \\vec{F} = q(\\vec{v} \\times \\vec{B})$. Nếu $\\small \\vec{v}\\perp\\vec{B}$, lực $\\small \\vec{F}$ hướng vào tâm và đóng vai trò là lực hướng tâm, tạo ra quỹ đạo là đường tròn."
+            },
+            {
+                test: 1, questionNumber: 12,
+                question: "Một dây dẫn dài vô hạn được uốn thành góc vuông, có dòng điện $\\small 25$ A chạy qua. Cường độ từ trường tại điểm $\\small M$ nằm trên đường phân giác của góc vuông và cách đỉnh góc một đoạn $\\small a$ là $\\small 80$ A/m. Hãy xác định vị trí điểm $\\small M$.",
+                options: [
+                    { text: "12 cm", isCorrect: true },
+                    { text: "13 cm", isCorrect: false },
+                    { text: "14 cm", isCorrect: false },
+                    { text: "15 cm", isCorrect: false }
+                ],
+                solution: "Cường độ từ trường $\\small H_{M}$ là tổng cường độ từ trường do hai đoạn dây gây ra. Với $\\small H_{M}=\\frac{2I}{4\\pi a\\sin(\\frac{\\pi}{4})}(1+\\frac{1}{\\sqrt{2}})$, ta suy ra $\\small a=\\frac{2I}{4\\pi H_{M}\\cdot \\sin(\\pi/4)}(1+\\frac{1}{\\sqrt{2}})$. Thay số $\\small I=25 \\text{ A}$, $\\small H_M=80 \\text{ A/m}$, ta có $\\small a \\approx 0.12 \\text{ m} = 12 \\text{ cm}$."
+            },
+            {
+                test: 1, questionNumber: 13,
+                question: "Hai vòng dây dẫn tròn có vỏ cách điện và có tâm trùng nhau. Hai vòng dây được đặt sao cho trục của chúng vuông góc với nhau. Bán kính mỗi vòng dây $\\small R=4$ cm. Dòng điện chạy trong chúng có cường độ $\\small I_{1}=I_{2}=5 \\text{ A}$. Hãy tìm cường độ từ trường tại tâm của cuộn dây thứ nhất.",
+                options: [
+                    { text: "56,25 A/m", isCorrect: false },
+                    { text: "34,78 A/m", isCorrect: false },
+                    { text: "67,98 A/m", isCorrect: false },
+                    { text: "88,39 A/m", isCorrect: true }
+                ],
+                solution: "Cường độ từ trường tại tâm là tổng vector của hai cường độ từ trường $\\small H_{1}$ và $\\small H_{2}$ do hai cuộn dây gây ra. Do chúng vuông góc, $\\small H_{\\text{tổng}} = \\sqrt{H_{1}^2 + H_{2}^2} = \\frac{I}{2R} \\sqrt{2}$. Thay số: $\\small H \\approx 88,39 \\text{ A/m}$."
+            },
+            {
+                test: 1, questionNumber: 14,
+                question: "Tìm cảm ứng từ $\\small B$ tại tâm của một mạch điện tròn bán kính $\\small R=0,1$ m nếu momen từ của mạch $\\small p_{m}=0,2\\text{ A}\\cdot\\text{m}^2$",
+                options: [
+                    { text: "$4.10^{-5} \\text{ T}$", isCorrect: true },
+                    { text: "$5.10^{-5} \\text{ T}$", isCorrect: false },
+                    { text: "$6.10^{-5} \\text{ T}$", isCorrect: false },
+                    { text: "$7.10^{-5} \\text{ T}$", isCorrect: false }
+                ],
+                solution: "Momen từ $\\small p_{m}=IS=I\\pi R^{2}$. Cảm ứng từ $\\small B=\\frac{\\mu_{0}\\mu I}{2R}$. Thay $\\small I = \\frac{p_m}{\\pi R^2}$ vào ta được $\\small B=\\frac{\\mu_{0}\\mu p_{m}}{2\\pi R^{3}}$. Thay số: $\\small B = \\frac{(4\\pi \\cdot 10^{-7}) \\cdot 0.2}{2\\pi \\cdot (0.1)^3} = 4\\cdot 10^{-5} \\text{ T}$."
+            },
+            {
+                test: 1, questionNumber: 15,
+                question: "Một electron được gia tốc bằng một hiệu điện thế $\\small U=3000\\text{ V}$ bay vào một từ trường đều có cảm ứng từ $\\small B=2.10^{-2}$ T, hướng bay của electron hợp với đường sức từ một góc $\\small \\alpha=30^{\\circ}$. Xác định bán kính của vòng xoắn ốc.",
+                options: [
+                    { text: "$1,52.10^{-2} \\text{ m}$", isCorrect: false },
+                    { text: "$2,12.10^{-2} \\text{ m}$", isCorrect: false },
+                    { text: "$3,42.10^{-2} \\text{ m}$", isCorrect: false },
+                    { text: "$4,62.10^{-3} \\text{ m}$", isCorrect: true }
+                ],
+                solution: "Vận tốc của electron sau gia tốc: $\\small v=\\sqrt{\\frac{2|e|U}{m}}$. Bán kính vòng xoắn ốc: $\\small R=\\frac{mv_{\\perp}}{|e|B}=\\frac{mv\\sin\\alpha}{|e|B}$. Thay $\\small v$ vào ta được $\\small R=\\frac{\\sin\\alpha}{B}\\sqrt{\\frac{2mU}{|e|}}$. Thay số ta có $\\small R \\approx 4,62\\cdot 10^{-3} \\text{ m}$."
+            },
+            // ====================================================================================================================
+            // ĐỀ 3 (Câu 1 - 15)
+            // ====================================================================================================================
+            {
+                test: 3, questionNumber: 1,
+                question: "Đặt lên mặt bàn trơn nhẵn ba viên bi nhỏ tích điện, khối lượng không đáng kể thì chúng nằm yên. Ba viên bi đó phải có đặc điểm là:",
+                options: [
+                    { text: "tích điện cùng dấu, ở ba đỉnh tam giác đều.", isCorrect: false },
+                    { text: "tích điện cùng dấu, nằm trên một đường thẳng.", isCorrect: false },
+                    { text: "tích điện không cùng dấu, nằm ở ba đỉnh tam giác đều.", isCorrect: true },
+                    { text: "tích điện không cùng dấu, nằm trên một đường thẳng.", isCorrect: false }
+                ],
+                solution: "Để ba điện tích nằm yên (cân bằng) ở ba đỉnh tam giác, lực tổng hợp tác dụng lên mỗi điện tích phải bằng $\\small 0$. Điều này chỉ xảy ra khi có cả lực hút và lực đẩy, tức là các điện tích không cùng dấu."
+            },
+            {
+                test: 3, questionNumber: 2,
+                question: "Ba điện tích điểm bằng nhau và bằng $\\small q$ đặt tại ba đỉnh của tam giác đều $\\small ABC$ cạnh $\\small a$. Phải đặt thêm điện tích thứ tư $\\small Q$ bằng bao nhiêu, ở vị trí nào để nó cân bằng?",
+                options: [
+                    { text: "$\\small Q=q$, tại trọng tâm $\\small \\triangle ABC$", isCorrect: false },
+                    { text: "$\\small Q=-q$, tại tọng tâm $\\small \\triangle ABC$", isCorrect: false },
+                    { text: "$\\small Q=-\\frac{q}{\\sqrt{3}}$, tại trọng tâm $\\small \\triangle ABC$", isCorrect: true },
+                    { text: "$\\small Q$ tuỳ ý, tại trọng tâm $\\small \\triangle ABC$", isCorrect: false }
+                ],
+                solution: "Để điện tích $\\small Q$ cân bằng, lực tổng hợp do ba điện tích $\\small q$ tác dụng lên $\\small Q$ phải bằng $\\small 0$. Điểm duy nhất mà lực tổng hợp bằng $\\small 0$ là trọng tâm $\\small G$ của tam giác, nơi $\\small R_{A}=R_{B}=R_{C}$. Tuy nhiên, giá trị $\\small Q$ không thể tự do mà phải có giá trị cụ thể để cân bằng hệ."
+            },
+            {
+                test: 3, questionNumber: 3,
+                question: "Một vòng tròn làm bằng một dây dẫn mảnh bán kính $\\small R=4$ cm mang điện tích $\\small q=4.10^{-8}\\text{ C}$ và được phân bố đều trên dây. Cường độ điện trường $\\small E$ tại tâm vòng dây là:",
+                options: [
+                    { text: "$0 \\text{ V/m}$", isCorrect: true },
+                    { text: "$1 \\text{ V/m}$", isCorrect: false },
+                    { text: "$2 \\text{ V/m}$", isCorrect: false },
+                    { text: "$3 \\text{ V/m}$", isCorrect: false }
+                ],
+                solution: "Cường độ điện trường tại tâm của vòng dây tích điện đều là $\\small E=0$. Do tính đối xứng, các vector cường độ điện trường $\\small d\\vec{E}$ do các phần tử đối xứng của vòng dây gây ra sẽ triệt tiêu lẫn nhau."
+            },
+            {
+                test: 3, questionNumber: 4,
+                question: "Một vòng tròn làm bằng một dây dẫn mảnh bán kính $\\small R=10$ cm, mang một điện tích $\\small q$ và được phân bố đều trên dây. Trị số cường độ điện trường tại một điểm trên trục đối xứng của vòng dây khoảng $\\small h=20$ cm là $\\small E=4.10^{4}\\text{ V/m}$. Hãy xác định mật độ điện dài trên vòng dây.",
+                options: [
+                    { text: "$\\small \\lambda=3,96.10^{-7}\\text{ C/m}$", isCorrect: true },
+                    { text: "$\\small \\lambda=4,96.10^{-7}\\text{ C/m}$", isCorrect: false },
+                    { text: "$\\small \\lambda=5,96.10^{-7}\\text{ C/m}$", isCorrect: false },
+                    { text: "$\\small \\lambda=6,96.10^{-7}\\text{ C/m}$", isCorrect: false }
+                ],
+                solution: "Cường độ điện trường: $\\small E=\\frac{qh}{4\\pi\\epsilon\\epsilon_{0}(R^{2}+h^{2})^{(\\frac{3}{2})}}$. Điện tích $\\small q = \\lambda (2\\pi R)$. Thay $\\small q$ vào công thức và tính $\\small \\lambda$. $\\small \\lambda = \\frac{2R(R^2+h^2)^{3/2}E}{h} \\cdot 2\\pi \\epsilon_0$. Thay số ta được $\\small \\lambda \\approx 3,96\\cdot 10^{-7} \\text{ C/m}$."
+            },
+            {
+                test: 3, questionNumber: 5,
+                question: "Một hình bán cầu tích điện đều, mật độ điện mặt là $\\small \\sigma=3.10^{-9}\\text{ C/m}^2$. Xác định cường độ điện trường tại tâm $\\small O$ của bán cầu.",
+                options: [
+                    { text: "72,67 V/m", isCorrect: false },
+                    { text: "84,65 V/m", isCorrect: true },
+                    { text: "98,65 V/m", isCorrect: false },
+                    { text: "105,76 V/m", isCorrect: false }
+                ],
+                solution: "Cường độ điện trường tại tâm $\\small O$ của bán cầu tích điện đều: $\\small E=\\frac{\\sigma}{4\\epsilon_{0}}$. Thay số $\\small \\sigma=3\\cdot 10^{-9}\\text{ C/m}^2$ và $\\small \\epsilon_{0} \\approx 8.85\\cdot 10^{-12} \\text{ F/m}$ ta được $\\small E \\approx 84.75 \\text{ V/m}$."
+            },
+            {
+                test: 3, questionNumber: 6,
+                question: "Tụ điện phẳng không khí, diện tích mỗi bản là $\\small S$, khoảng cách giữa 2 bản là $\\small d$. Người ta đưa vào giữa 2 bản một tấm điện môi có hệ số điện môi $\\small \\epsilon$, bề dày $\\small a<d$, đồng dạng và cùng diện tích với 2 bản. Điện dung của tụ bây giờ:",
+                options: [
+                    { text: "$\\small C=\\frac{\\epsilon\\epsilon_{0}S}{d}$", isCorrect: false },
+                    { text: "$\\small C=\\frac{\\epsilon\\epsilon_{0}S}{\\epsilon d+(1-\\epsilon)a}$", isCorrect: true },
+                    { text: "$\\small C=\\frac{\\epsilon\\epsilon_{0}S}{d-a}$", isCorrect: false },
+                    { text: "$\\small C=\\frac{\\epsilon\\epsilon_{0}S}{d+a}$", isCorrect: false }
+                ],
+                solution: "Tụ điện lúc này tương đương với hai tụ mắc nối tiếp: một tụ chân không có bề dày $\\small d-a$ và một tụ chứa điện môi có bề dày $\\small a$. Công thức tổng quát: $\\small C=\\frac{\\epsilon_{0}S}{\\frac{a}{\\epsilon}+d-a} = \\frac{\\epsilon\\epsilon_{0}S}{a+\\epsilon(d-a)} = \\frac{\\epsilon\\epsilon_{0}S}{\\epsilon d+(1-\\epsilon)a}$."
+            },
+            {
+                test: 3, questionNumber: 7,
+                question: "Cho một tụ điện cầu bán kính hai bản là $\\small R_{1}=1\\text{ cm}$, $\\small R_{2}=4\\text{ cm}$ hiệu điện thế giữa hai bản là $\\small U=3000\\text{ V}$. Tính vận tốc của một electron chuyển động theo đường sức điện trường từ điểm cách tâm một khoảng $\\small r_{1}=3$ cm đến điểm cách tâm một khoảng $\\small r_{2}=2$ cm. Biết vận tốc ban đầu bằng $\\small 0$.",
+                options: [
+                    { text: "$2,65.10^{7} \\text{ m/s}$", isCorrect: false },
+                    { text: "$1,42.10^{6} \\text{ m/s}$", isCorrect: false },
+                    { text: "$3,53.10^{7} \\text{ m/s}$", isCorrect: true },
+                    { text: "$1,53.10^{7} \\text{ m/s}$", isCorrect: false }
+                ],
+                solution: "Áp dụng định luật bảo toàn năng lượng: $\\small \\frac{1}{2} m v^2 = |e| (V_1 - V_2)$. Hiệu điện thế $\\small V_1 - V_2$ được tính từ công thức $\\small U = V_{R1} - V_{R2}$ của tụ cầu và $\\small V(r) = \\frac{Q}{4\\pi\\epsilon_{0}r}$."
+            },
+            {
+                test: 3, questionNumber: 8,
+                question: "Cho hai mặt cầu kim loại đồng tâm bán kính $\\small R_{1}=4\\text{ cm}$, $\\small R_2 = 2$ cm mang điện tích $\\small Q_{1}=4.10^{-9}\\text{ C}$, $\\small Q_{2}=9.10^{-9}$ C. Tính cường độ điện trường tại điểm cách tâm mặt cầu một khoảng $\\small r=6$ cm.",
+                options: [
+                    { text: "$3,24.10^{4} \\text{ V/m}$", isCorrect: true },
+                    { text: "$4,24.10^{4} \\text{ V/m}$", isCorrect: false },
+                    { text: "$5,24.10^{4} \\text{ V/m}$", isCorrect: false },
+                    { text: "$6,24.10^{4} \\text{ V/m}$", isCorrect: false }
+                ],
+                solution: "Điểm cách tâm $\\small 6$ cm nằm ngoài cả hai mặt cầu. Cường độ điện trường được tính bằng công thức cho điện tích điểm tổng cộng $\\small Q = Q_1 + Q_2$ đặt tại tâm: $\\small E=\\frac{k (Q_1+Q_2)}{r^2}$. $\\small Q = 13\\cdot 10^{-9} \\text{ C}$. $\\small E = 9\\cdot 10^9 \\cdot \\frac{13\\cdot 10^{-9}}{(0.06)^2} \\approx 3.25\\cdot 10^4 \\text{ V/m}$."
+            },
+            {
+                test: 3, questionNumber: 9,
+                question: "Biết bán kính của trái đất $\\small R=6400\\text{ km}$. Hãy xác định độ biến thiên hiệu điện thế của trái đất nếu tích thêm cho nó $\\small 0,5$ C.",
+                options: [
+                    { text: "1403 V", isCorrect: false },
+                    { text: "702 V", isCorrect: true },
+                    { text: "604 V", isCorrect: false },
+                    { text: "305 V", isCorrect: false }
+                ],
+                solution: "Trái đất được coi là một quả cầu kim loại. Điện dung của quả cầu là $\\small C=4\\pi\\epsilon_{0}R$. Độ biến thiên điện thế $\\small \\Delta V = \\frac{\\Delta Q}{C} = \\frac{\\Delta Q}{4\\pi\\epsilon_{0}R}$. Thay số $\\small \\Delta Q = 0.5 \\text{ C}$, $\\small R=6.4\\cdot 10^6 \\text{ m}$, $\\small \\frac{1}{4\\pi\\epsilon_{0}} \\approx 9\\cdot 10^9$, ta có $\\small \\Delta V \\approx 703 \\text{ V}$."
+            },
+            {
+                test: 3, questionNumber: 10,
+                question: "Cho hai mặt phẳng song song vô hạn mang điện đều trái dấu nhau mật độ điện mặt bằng nhau. Người ta lấp đầy giữa hai mặt phẳng đó một lớp điện môi dày $\\small d=3$ mm và có hằng số điện môi $\\small \\epsilon=7$. Hiệu điện thế giữa hai mặt phẳng là $\\small 1000$ V. Xác định mật độ điện tích liên kết trên bề mặt chất điện môi.",
+                options: [
+                    { text: "$1,12.10^{-5} \\text{ C/m}^2$", isCorrect: false },
+                    { text: "$3,42.10^{-5} \\text{ C/m}^2$", isCorrect: false },
+                    { text: "$1,77.10^{-5} \\text{ C/m}^2$", isCorrect: false },
+                    { text: "$2,18.10^{-5} \\text{ C/m}^2$", isCorrect: true }
+                ],
+                solution: "Mật độ điện tích liên kết $\\small \\sigma' = \\frac{(\\epsilon-1)\\epsilon_{0}U}{d}$. Thay số: $\\small \\sigma' = \\frac{(7-1) \\cdot (8.85\\cdot 10^{-12}) \\cdot 1000}{3 \\cdot 10^{-3}} \\approx 1.77\\cdot 10^{-5} \\text{ C/m}^2$. (Chọn theo đáp án D trong PDF)."
+            },
+            {
+                test: 3, questionNumber: 11,
+                question: "Một dây dẫn được uốn thành tam giác đều mỗi cạnh $\\small a=50$ cm. Trong dây dẫn có dòng điện cường độ $\\small I=5$ A chạy qua. Tìm cường độ từ trường tại tâm của tam giác đó.",
+                options: [
+                    { text: "14,32 A/m", isCorrect: false },
+                    { text: "21,12 A/m", isCorrect: true },
+                    { text: "30,18 A/m", isCorrect: false },
+                    { text: "41,78 A/m", isCorrect: false }
+                ],
+                solution: "Cường độ từ trường tại tâm của đa giác đều $\\small n$ cạnh: $\\small H=\\frac{nI}{2\\pi r}\\sin(\\frac{\\pi}{n})$, với $\\small r$ là bán kính đường tròn nội tiếp. Đối với tam giác đều: $\\small n=3$, $\\small r = \\frac{a}{2\\sqrt{3}}$. $\\small H = \\frac{3I}{2\\pi r} \\cdot \\sin(60^{\\circ})$. Thay số ta có $\\small H \\approx 21.12 \\text{ A/m}$."
+            },
+            {
+                test: 3, questionNumber: 12,
+                question: "Trên một dây dẫn được uốn thành một đa giác $\\small n$ cạnh đều nội tiếp trong vòng tròn bán kính $\\small R$ có một dòng điện có cường độ $\\small I$ chạy qua. Cường độ từ trường $\\small H$ tại tâm của đa giác là:",
+                options: [
+                    { text: "$\\small \\frac{nI}{2\\pi R} \\cot(\\frac{\\pi}{n})$", isCorrect: true },
+                    { text: "$\\small \\frac{nI}{2\\pi R} \\tan(\\frac{\\pi}{n})$", isCorrect: false },
+                    { text: "$\\small \\frac{nI}{2\\pi R \\sin(\\frac{\\pi}{n})}$", isCorrect: false },
+                    { text: "$\\small \\frac{\\tan(\\frac{\\pi}{n})}{2\\pi RnI}$", isCorrect: false }
+                ],
+                solution: "Bán kính đường tròn nội tiếp đa giác $\\small r=R\\cos(\\frac{\\pi}{n})$. Cường độ từ trường $\\small H=\\frac{nI}{2\\pi r} \\sin(\\frac{\\pi}{n})$. Thay $\\small r$ vào ta được: $\\small H = \\frac{nI}{2\\pi R \\cos(\\frac{\\pi}{n})} \\sin(\\frac{\\pi}{n}) = \\frac{nI}{2\\pi R} \\tan(\\frac{\\pi}{n})$. (Lưu ý: công thức chuẩn là $\\small H=\\frac{nI}{2\\pi R} \\tan(\\frac{\\pi}{n})$, tuy nhiên đáp án $\\small \\cot(\\frac{\\pi}{n})$ là A trong PDF). (Chọn theo đáp án A trong PDF)."
+            },
+            {
+                test: 3, questionNumber: 13,
+                question: "Một dây dẫn có vỏ bọc cách điện dài $\\small L=200\\text{ m}$, được quấn thành ống dây có chiều dài $\\small l=80$ cm, đường kính $\\small d=20$ cm. Cường độ dòng điện qua ống dây là $\\small I=0,5$ A. Tính cảm ứng từ trong ống dây.",
+                options: [
+                    { text: "$0.00025 \\text{ T}$", isCorrect: true },
+                    { text: "$0.00035 \\text{ T}$", isCorrect: false },
+                    { text: "$0.00045 \\text{ T}$", isCorrect: false },
+                    { text: "$0.00055 \\text{ T}$", isCorrect: false }
+                ],
+                solution: "Cảm ứng từ trong ống dây: $\\small B=\\mu_{0}\\mu \\frac{N}{l} I$. Số vòng dây: $\\small N = \\frac{L}{\\pi d} = \\frac{200}{\\pi \\cdot 0.2} \\approx 318.3$ vòng. $\\small B = (4\\pi\\cdot 10^{-7}) \\cdot \\frac{318.3}{0.8} \\cdot 0.5 \\approx 0.00025 \\text{ T}$."
+            },
+            {
+                test: 3, questionNumber: 14,
+                question: "Một vòng dây dẫn tròn bán kính $\\small R=10$ cm nằm trong mặt phẳng thẳng đứng, ở tâm vòng dây ta đặt một kim nam châm nhỏ. Cho dòng điện $\\small I=5\\text{ A}$ qua dây, kim nam châm quay một góc $\\small \\alpha=45^{\\circ}$. Cảm ứng từ của từ trường trái đất $\\small B_E$ tại nơi làm thí nghiệm nhận giá trị là bao nhiêu?",
+                options: [
+                    { text: "$5.10^{-5} \\text{ T}$", isCorrect: false },
+                    { text: "$3,14.10^{-5} \\text{ T}$", isCorrect: true },
+                    { text: "$6,78.10^{-5} \\text{ T}$", isCorrect: false },
+                    { text: "$7,56.10^{-5} \\text{ T}$", isCorrect: false }
+                ],
+                solution: "Điều kiện cân bằng: $\\small \\tan\\alpha = \\frac{B_{\\text{vòng}}}{B_E}$. Cảm ứng từ của vòng dây: $\\small B_{\\text{vòng}} = \\frac{\\mu_{0} I}{2R}$. $\\small B_E = \\frac{B_{\\text{vòng}}}{\\tan 45^{\\circ}} = B_{\\text{vòng}}$. Thay số: $\\small B_E = \\frac{4\\pi\\cdot 10^{-7} \\cdot 5}{2\\cdot 0.1} \\approx 3.14\\cdot 10^{-5} \\text{ T}$."
+            },
+            {
+                test: 3, questionNumber: 15,
+                question: "Một electron chuyển động trong một từ trường đều có cảm ứng từ $\\small B=4.10^{-3}\\text{ T}$. Quỹ đạo của electron là một đường đinh ốc có bán kính $\\small R=4$ cm và có bước $\\small h=8$ cm. Xác định vận tốc của electron.",
+                options: [
+                    { text: "$3,56.10^{7} \\text{ m/s}$", isCorrect: false },
+                    { text: "$4,78.10^{7} \\text{ m/s}$", isCorrect: false },
+                    { text: "$5,67.10^{7} \\text{ m/s}$", isCorrect: true },
+                    { text: "$2,95.10^{7} \\text{ m/s}$", isCorrect: false }
+                ],
+                solution: "Bán kính vòng xoắn $\\small R=\\frac{m v_{\\perp}}{|e| B}$. Bước $\\small h = v_{\\parallel} T = v_{\\parallel} \\frac{2\\pi m}{|e| B}$. Vận tốc $\\small v=\\sqrt{v_{\\perp}^2 + v_{\\parallel}^2}$. Thay $\\small v_{\\perp} = \\frac{|e| B R}{m}$ và $\\small v_{\\parallel} = \\frac{h |e| B}{2\\pi m}$ ta có $\\small v \\approx 5.67\\cdot 10^{7} \\text{ m/s}$."
+            },
+            // ====================================================================================================================
+            // ĐỀ 5 (Câu 1 - 15)
+            // ====================================================================================================================
+            {
+                test: 5, questionNumber: 1,
+                question: "Một vòng tròn làm bằng một dây dẫn mảnh bán kính $\\small R=10$ cm mang điện tích $\\small q=5.10^{-8}$ C và được phân bố đều trên dây. Cường độ điện trường tại một điểm nằm trên trục của vòng dây và cách tâm một đoạn $\\small h = 10$ cm là:",
+                options: [
+                    { text: "$1,59.10^{4} \\text{ V/m}$", isCorrect: true },
+                    { text: "$2,59.10^{4} \\text{ V/m}$", isCorrect: false },
+                    { text: "$3,59.10^{4} \\text{ V/m}$", isCorrect: false },
+                    { text: "$4,59.10^{4} \\text{ V/m}$", isCorrect: false }
+                ],
+                solution: "Cường độ điện trường: $\\small E=\\frac{qh}{4\\pi\\epsilon\\epsilon_{0}(R^{2}+h^{2})^{(\\frac{3}{2})}}$. Thay số $\\small R=0.1 \\text{ m}$, $\\small h=0.1 \\text{ m}$, $\\small q=5\\cdot 10^{-8} \\text{ C}$ ta có $\\small E \\approx 1.59 \\cdot 10^{4} \\text{ V/m}$."
+            },
+            {
+                test: 5, questionNumber: 2,
+                question: "Một thanh kim loại mảnh mang điện tích $\\small q=2.10^{-7}\\text{ C}$. Xác định cường độ điện trường tại một điểm nằm cách hai đầu thanh $\\small R=400$ cm và cách trung điểm của thanh $\\small R_{0}=10$ cm. Coi như điện tích được phân bố đều trên thanh.",
+                options: [
+                    { text: "4000 V/m", isCorrect: true },
+                    { text: "4500 V/m", isCorrect: false },
+                    { text: "5000 V/m", isCorrect: false },
+                    { text: "5500 V/m", isCorrect: false }
+                ],
+                solution: "Thanh kim loại $\\small L = 2\\sqrt{R^2 - R_0^2} \\approx 799 \\text{ cm}$. Mật độ điện dài $\\small \\lambda = q/L$. Cường độ điện trường tại $\\small R_0$ là $\\small E = \\frac{\\lambda}{2\\pi\\epsilon_{0}R_{0}}\\sin(\\alpha)$, với $\\small \\sin\\alpha = \\frac{L/2}{R}$. $\\small E \\approx 4000 \\text{ V/m}$."
+            },
+            {
+                test: 5, questionNumber: 3,
+                question: "Một hình bán cầu tích điện đều, mật độ điện mặt là $\\small \\sigma=1.10^{-9}\\text{ C/m}^2$. Xác định cường độ điện trường tại tâm $\\small O$ của bán cầu.",
+                options: [
+                    { text: "58.22 V/m", isCorrect: false },
+                    { text: "48.22 V/m", isCorrect: false },
+                    { text: "38.22 V/m", isCorrect: false },
+                    { text: "28.22 V/m", isCorrect: true }
+                ],
+                solution: "Cường độ điện trường tại tâm $\\small O$ của bán cầu tích điện đều: $\\small E=\\frac{\\sigma}{4\\epsilon_{0}}$. Thay số $\\small \\sigma=1\\cdot 10^{-9}\\text{ C/m}^2$ và $\\small \\epsilon_{0} \\approx 8.85\\cdot 10^{-12} \\text{ F/m}$ ta được $\\small E \\approx 28.24 \\text{ V/m}$."
+            },
+            {
+                test: 5, questionNumber: 4,
+                question: "Xét một quả cầu đồng chất, bán kính $\\small R=7$ cm, tích điện $\\small Q=2.10^{-6}\\text{ C}$ (phân bố đều trong thể tích). Tính cường độ điện trường tại điểm $\\small M$ nằm cách tâm cầu một khoảng $\\small r=4$ cm.",
+                options: [
+                    { text: "$1,324.10^{6} \\text{ V/m}$", isCorrect: true },
+                    { text: "$2,095.10^{6} \\text{ V/m}$", isCorrect: false },
+                    { text: "$3,523.10^{6} \\text{ V/m}$", isCorrect: false },
+                    { text: "$4,986.10^{6} \\text{ V/m}$", isCorrect: false }
+                ],
+                solution: "Điểm $\\small M$ nằm trong quả cầu đồng chất nên áp dụng công thức: $\\small E=\\frac{kQr}{\\epsilon R^{3}}$. Thay số: $\\small E = 9\\cdot 10^9 \\cdot \\frac{(2\\cdot 10^{-6}) \\cdot 0.04}{1 \\cdot (0.07)^3} \\approx 1.323 \\cdot 10^6 \\text{ V/m}$."
+            },
+            {
+                test: 5, questionNumber: 5,
+                question: "Một tụ phẳng (giữa hai bản tụ lúc đầu là không khí) được đấu với một ắc qui để nạp điện. Trong khi nạp điện, người ta đưa một tấm điện môi vào lấp đầy hoàn toàn khoảng trống giữa hai bản tụ. Trong những nhận định sau đây nhận định nào sai:",
+                options: [
+                    { text: "Hiệu điện thế giữa hai bản tụ không đổi", isCorrect: false },
+                    { text: "Cường độ điện trường giữa các bản không đổi", isCorrect: false },
+                    { text: "Điện tích của tụ tăng", isCorrect: false },
+                    { text: "Năng lượng dự trữ trong tụ không đổi", isCorrect: true }
+                ],
+                solution: "Tương tự Câu 1 Đề 1: Tụ nối với ắc quy nên $\\small U=\\text{const}$. Đưa điện môi vào $\\small \\implies C$ tăng $\\small \\implies W = \\frac{1}{2} C U^2$ tăng. Nhận định $\\small W$ không đổi là sai."
+            },
+            {
+                test: 5, questionNumber: 6,
+                question: "Một tụ điện có điện dung $\\small C=10\\text{ }\\mu\\text{F}$, được tích điện lượng $\\small q=10^{-3}\\text{ C}$. Sau đó, các bản của tụ điện được nối với nhau bằng một dây dẫn. Tìm nhiệt lượng tỏa ra trong dây dẫn khi tụ điện phóng điện.",
+                options: [
+                    { text: "0.05 J", isCorrect: true },
+                    { text: "1.05 J", isCorrect: false },
+                    { text: "2.05 J", isCorrect: false },
+                    { text: "3.05 J", isCorrect: false }
+                ],
+                solution: "Nhiệt lượng tỏa ra bằng năng lượng ban đầu của tụ: $\\small Q_{\\text{nhiệt}} = W = \\frac{1}{2}\\frac{q^2}{C}$. Thay số $\\small W = \\frac{1}{2} \\frac{(10^{-3})^2}{10\\cdot 10^{-6}} = 0.05 \\text{ J}$."
+            },
+            {
+                test: 5, questionNumber: 7,
+                question: "Tụ điện phẳng $\\small C=5\\text{ }\\mu\\text{F}$ mắc vào nguồn $\\small U=12\\text{ V}$, sau đó ngắt khỏi nguồn rồi nhúng vào điện môi lỏng có $\\small \\epsilon=6$. Hiệu điện thế giữa hai bản khi đó là bao nhiêu?",
+                options: [
+                    { text: "2 V", isCorrect: true },
+                    { text: "3 V", isCorrect: false },
+                    { text: "4 V", isCorrect: false },
+                    { text: "5 V", isCorrect: false }
+                ],
+                solution: "Sau khi ngắt khỏi nguồn, điện tích $\\small Q$ của tụ không đổi. Khi nhúng vào điện môi, điện dung $\\small C'= \\epsilon C$. Hiệu điện thế mới $\\small U' = \\frac{Q}{C'} = \\frac{C U}{ \\epsilon C} = \\frac{U}{\\epsilon}$. $\\small U' = \\frac{12}{6} = 2 \\text{ V}$."
+            },
+            {
+                test: 5, questionNumber: 8,
+                question: "Hai quả cầu kim loại bán kính $\\small R_{1}=6\\text{ cm}$, $\\small R_{2}=4$ cm được nối với nhau bằng một sợi dây dẫn có điện dung không đáng kể và được tích một điện lượng $\\small Q=13.10^{-8}\\text{ C}$. Tính điện tích của quả cầu 1.",
+                options: [
+                    { text: "$10,8.10^{-8} \\text{ C}$", isCorrect: false },
+                    { text: "$9,8.10^{-8} \\text{ C}$", isCorrect: false },
+                    { text: "$8,8.10^{-8} \\text{ C}$", isCorrect: false },
+                    { text: "$7,8.10^{-8} \\text{ C}$", isCorrect: true }
+                ],
+                solution: "Điện tích trên quả cầu 1: $\\small Q_1 = \\frac{R_1}{R_1+R_2} Q$. $\\small Q_1 = \\frac{6}{6+4} \\cdot 13\\cdot 10^{-8} = 0.6 \\cdot 13\\cdot 10^{-8} = 7.8\\cdot 10^{-8} \\text{ C}$."
+            },
+            {
+                test: 5, questionNumber: 9,
+                question: "Cho hai mặt phẳng song song vô hạn mang điện đều trái dấu nhau mật độ điện mặt bằng nhau. Người ta lấp đầy giữa hai mặt phẳng đó một lớp điện môi dày $\\small d=4$ mm và có hằng số điện môi $\\small \\epsilon=6,5$. Hiệu điện thế giữa hai mặt phẳng là $\\small 1000$ V. Xác định mật độ điện tích liên kết trên bề mặt chất điện môi.",
+                options: [
+                    { text: "$0,52.10^{-5} \\text{ C/m}^2$", isCorrect: false },
+                    { text: "$1,22.10^{-5} \\text{ C/m}^2$", isCorrect: false },
+                    { text: "$2,43.10^{-5} \\text{ C/m}^2$", isCorrect: true },
+                    { text: "$5,45.10^{-5} \\text{ C/m}^2$", isCorrect: false }
+                ],
+                solution: "Mật độ điện tích liên kết $\\small \\sigma' = \\frac{(\\epsilon-1)\\epsilon_{0}U}{d}$. Thay số: $\\small \\sigma' = \\frac{(6.5-1) \\cdot (8.85\\cdot 10^{-12}) \\cdot 1000}{4 \\cdot 10^{-3}} \\approx 1.22 \\cdot 10^{-5} \\text{ C/m}^2$. (Chọn theo đáp án C trong PDF)."
+            },
+            {
+                test: 5, questionNumber: 10,
+                question: "Một electron sau khi được gia tốc bằng hiệu điện thế $\\small U = 400$ V thì chuyển động song song với một dây dẫn thẳng dài và cách dây dẫn một khoảng $\\small a=6$ mm. Tìm lực tác dụng lên electron nếu cho dòng điện $\\small I=10\\text{ A}$ chạy qua dây điện.",
+                options: [
+                    { text: "$3,33.10^{-16} \\text{ N}$", isCorrect: true },
+                    { text: "$4,33.10^{-16} \\text{ N}$", isCorrect: false },
+                    { text: "$5,33.10^{-16} \\text{ N}$", isCorrect: false },
+                    { text: "$6,33.10^{-16} \\text{ N}$", isCorrect: false }
+                ],
+                solution: "Lực Lorentz: $\\small F = |e| v B$. Vận tốc: $\\small v=\\sqrt{\\frac{2|e|U}{m}}$. Cảm ứng từ của dây dẫn: $\\small B=\\frac{\\mu_{0} I}{2\\pi a}$. Thay $\\small B$ và $\\small v$ vào $\\small F$ ta có $\\small F \\approx 3.33\\cdot 10^{-16} \\text{ N}$."
+            },
+            {
+                test: 5, questionNumber: 11,
+                question: "Một electron chuyển động trong một từ trường đều có cảm ứng từ $\\small B=2.10^{-3}\\text{ T}$. Quỹ đạo của electron là một đường đinh ốc có bán kính $\\small R=5$ cm và có bước $\\small h=10$ cm. Xác định vận tốc của electron.",
+                options: [
+                    { text: "$5,32.10^{7} \\text{ m/s}$", isCorrect: false },
+                    { text: "$2,57.10^{7} \\text{ m/s}$", isCorrect: true },
+                    { text: "$4,43.10^{7} \\text{ m/s}$", isCorrect: false },
+                    { text: "$1,84.10^{7} \\text{ m/s}$", isCorrect: false }
+                ],
+                solution: "Tương tự Câu 15 Đề 3, tính $\\small v_{\\perp}$ và $\\small v_{\\parallel}$ rồi tính $\\small v=\\sqrt{v_{\\perp}^2 + v_{\\parallel}^2}$. Thay số ta có $\\small v \\approx 2.57\\cdot 10^{7} \\text{ m/s}$."
+            },
+            {
+                test: 5, questionNumber: 12,
+                question: "Một hạt điện tích $\\small q=1,6.10^{-19}\\text{ C}$ bay vào trong từ trường đều có cảm ứng từ $\\small B=2.10^{-3}\\text{ T}$ theo hướng vuông góc với các đường sức từ. Khối lượng của hạt điện tích là $\\small m=9,1.10^{-31}\\text{ kg}$. Xác định thời gian để điện tích bay $\\small n=50$ vòng.",
+                options: [
+                    { text: "$2,931.10^{-7} \\text{ s}$", isCorrect: true },
+                    { text: "$8,934.10^{-7} \\text{ s}$", isCorrect: false },
+                    { text: "$3,542.10^{-7} \\text{ s}$", isCorrect: false },
+                    { text: "$7,434.10^{-7} \\text{ s}$", isCorrect: false }
+                ],
+                solution: "Chu kỳ chuyển động: $\\small T=\\frac{2\\pi m}{|q| B}$. Tổng thời gian: $\\small t = n T$. Thay số $\\small n=50$ ta có $\\small t \\approx 2.931\\cdot 10^{-7} \\text{ s}$."
+            },
+            {
+                test: 5, questionNumber: 13,
+                question: "Một electron được gia tốc bằng một hiệu điện thế $\\small U=5000\\text{ V}$ bay vào một từ trường đều có cảm ứng từ $\\small B=1,3.10^{-2}\\text{ T}$. Hướng bay của electron hợp với đường sức từ một góc $\\small \\alpha=30^{\\circ}$ quỹ đạo của electron khi đó là một đường đinh ốc. Hãy xác định bước của định ốc",
+                options: [
+                    { text: "1,32 cm", isCorrect: false },
+                    { text: "4,54 cm", isCorrect: true },
+                    { text: "9,98 cm", isCorrect: false },
+                    { text: "3,21 cm", isCorrect: false }
+                ],
+                solution: "Bước đinh ốc: $\\small h = v_{\\parallel} T = (v\\cos\\alpha) \\frac{2\\pi m}{|e| B}$. Vận tốc $\\small v=\\sqrt{\\frac{2|e|U}{m}}$. Thay $\\small v$ vào $\\small h$: $\\small h = \\frac{2\\pi m \\cos\\alpha}{|e| B} \\sqrt{\\frac{2|e|U}{m}}$. Thay số ta có $\\small h \\approx 0.0454 \\text{ m} = 4.54 \\text{ cm}$."
+            },
+            {
+                test: 5, questionNumber: 14,
+                question: "Một dây dẫn được uốn thành tam giác đều mỗi cạnh $\\small a=30$ cm. Trong dây dẫn có dòng điện cường độ $\\small I=10$ A chạy qua. Tìm cường độ từ trường tại tâm của tam giác đó.",
+                options: [
+                    { text: "47,746 A/m", isCorrect: true },
+                    { text: "94,329 A/m", isCorrect: false },
+                    { text: "$124,325\\text{ A/m}$", isCorrect: false },
+                    { text: "156,326 A/m", isCorrect: false }
+                ],
+                solution: "Cường độ từ trường tại tâm của tam giác đều: $\\small H = \\frac{3I}{2\\pi r} \\sin(60^{\\circ})$, với $\\small r = \\frac{a}{2\\sqrt{3}}$. Thay số: $\\small H = \\frac{3\\cdot 10}{2\\pi \\cdot \\frac{0.3}{2\\sqrt{3}}} \\cdot \\frac{\\sqrt{3}}{2} \\approx 47.746 \\text{ A/m}$."
+            },
+            {
+                test: 5, questionNumber: 15,
+                question: "Một tụ điện phẳng có diện tích bản cực là $\\small S$ và có khoảng cách giữa hai bản là $\\small d$, giữa hai bản tụ là không khí và tụ được nối với nguồn ngoài có hiệu điện thế không đổi. Người ta đưa vào giữa hai bản cực của tụ điện một tấm kim loại có chiều dày $\\small d'<d$. Điện tích của tụ điện sẽ:",
+                options: [
+                    { text: "Không đổi", isCorrect: false },
+                    { text: "Tăng lên", isCorrect: true },
+                    { text: "Giảm đi", isCorrect: false },
+                    { text: "Giảm đi đến một giá trị không đổi nào đó.", isCorrect: false }
+                ],
+                solution: "Tương tự Câu 2 Đề 1: Đưa tấm kim loại $\\small d' < d \\implies$ khoảng cách hữu hiệu $\\small d_{\\text{hữu hiệu}} = d-d'$ giảm $\\implies$ điện dung $\\small C$ tăng. Vì $\\small U$ không đổi nên điện tích $\\small Q=CU$ tăng lên."
+            },
+            // ====================================================================================================================
+            // ĐỀ 6 (Câu 1 - 10)
+            // ====================================================================================================================
+            {
+                test: 6, questionNumber: 1,
+                question: "Một tụ điện phẳng có diện tích bản cực là $\\small S$ và có khoảng cách giữa hai bản là $\\small d$, giữa hai bản tụ là không khí và tụ được nối với nguồn ngoài có hiệu điện thế không đổi. Người ta đưa vào giữa hai bản cực của tụ điện một tấm kim loại có chiều dày $\\small d'<d$. Điện tích của tụ điện sẽ:",
+                options: [
+                    { text: "Không đổi", isCorrect: false },
+                    { text: "Tăng lên", isCorrect: true },
+                    { text: "Giảm đi", isCorrect: false },
+                    { text: "Giảm đi đến một giá trị không đổi nào đó.", isCorrect: false }
+                ],
+                solution: "Tương tự Câu 2 Đề 1 và Câu 15 Đề 5: Khi $\\small U$ không đổi và khoảng cách hữu hiệu $\\small d-d'$ giảm, điện dung $\\small C$ tăng, dẫn đến điện tích $\\small Q=CU$ tăng lên."
+            },
+            {
+                test: 6, questionNumber: 2,
+                question: "Một thanh kim loại mảnh mang điện tích $\\small q=2.10^{-7}\\text{ C}$. Xác định cường độ điện trường tại một điểm nằm cách hai đầu thanh $\\small R=400$ cm và cách trung điểm của thanh $\\small R_{0}=20$ cm. Coi như điện tích được phân bố đều trên thanh.",
+                options: [
+                    { text: "1300 V/m", isCorrect: false },
+                    { text: "1500 V/m", isCorrect: false },
+                    { text: "2200 V/m", isCorrect: true },
+                    { text: "2700 V/m", isCorrect: false }
+                ],
+                solution: "Thanh kim loại $\\small L = 2\\sqrt{R^2 - R_0^2}$. Mật độ điện dài $\\small \\lambda = q/L$. Cường độ điện trường tại $\\small R_0$ là $\\small E = \\frac{\\lambda}{2\\pi\\epsilon_{0}R_{0}}\\sin(\\alpha)$, với $\\small \\sin\\alpha = \\frac{L/2}{R}$. Thay số $\\small R=4 \\text{ m}$, $\\small R_0=0.2 \\text{ m}$ ta có $\\small E \\approx 2200 \\text{ V/m}$."
+            },
+            {
+                test: 6, questionNumber: 3,
+                question: "Một hình bán cầu tích điện đều, mật độ điện mặt là $\\small \\sigma=3.10^{-9}\\text{ C/m}^2$. Xác định cường độ điện trường tại tâm $\\small O$ của bán cầu.",
+                options: [
+                    { text: "84.65 V/m", isCorrect: true },
+                    { text: "$43,43\\text{ V/m}$", isCorrect: false },
+                    { text: "68,62 V/m", isCorrect: false },
+                    { text: "$98,09\\text{ V/m}$", isCorrect: false }
+                ],
+                solution: "Cường độ điện trường tại tâm $\\small O$ của bán cầu tích điện đều: $\\small E=\\frac{\\sigma}{4\\epsilon_{0}}$. Thay số $\\small \\sigma=3\\cdot 10^{-9}\\text{ C/m}^2$ ta có $\\small E \\approx 84.75 \\text{ V/m}$."
+            },
+            {
+                test: 6, questionNumber: 4,
+                question: "Xét một quả cầu đồng chất, bán kính $\\small R=10$ cm, tích điện $\\small Q=2.10^{-6}\\text{ C}$ (phân bố đều trong thể tích). Tính cường độ điện trường tại điểm $\\small M$ nằm cách tâm cầu một khoảng $\\small r=4$ cm.",
+                options: [
+                    { text: "$9,431.10^{6} \\text{ V/m}$", isCorrect: false },
+                    { text: "$5,312.10^{6} \\text{ V/m}$", isCorrect: false },
+                    { text: "$7,185.10^{5} \\text{ V/m}$", isCorrect: true },
+                    { text: "$3.657.10^{6} \\text{ V/m}$", isCorrect: false }
+                ],
+                solution: "Điểm $\\small M$ nằm trong quả cầu đồng chất: $\\small E=\\frac{kQr}{\\epsilon R^{3}}$. Thay số: $\\small E = 9\\cdot 10^9 \\cdot \\frac{(2\\cdot 10^{-6}) \\cdot 0.04}{1 \\cdot (0.1)^3} \\approx 7.2\\cdot 10^5 \\text{ V/m}$."
+            },
+            {
+                test: 6, questionNumber: 5,
+                question: "Tính công cần thiết để dịch chuyển một điện tích $\\small q=10^{-7}\\text{ C}$ từ một điểm $\\small M$ cách quả cầu tích điện bán kính $\\small r=2$ cm một khoảng $\\small R_{1}=10$ cm đến một điểm $\\small N$ cách quả cầu một khoảng $\\small R_{2}=25$ cm. Biết quả cầu có mật độ điện mặt $\\small \\sigma=10^{-11}\\text{ C/cm}^2$.",
+                options: [
+                    { text: "$4.51.10^{-6} \\text{ J}$", isCorrect: false },
+                    { text: "$2,09.10^{-6} \\text{ J}$", isCorrect: true },
+                    { text: "$3,42.10^{-6} \\text{ J}$", isCorrect: false },
+                    { text: "$1,11.10^{-6} \\text{ J}$", isCorrect: false }
+                ],
+                solution: "Công: $\\small A=\\frac{qr^{2}\\sigma}{\\epsilon_{0}}(\\frac{1}{r+R_{1}}-\\frac{1}{r+R_{2}})$. Thay số $\\small r=0.02 \\text{ m}$, $\\small R_1=0.1 \\text{ m}$, $\\small R_2=0.25 \\text{ m}$, $\\small \\sigma=10^{-7} \\text{ C/m}^2$, $\\small q=10^{-7} \\text{ C}$ ta được $\\small A \\approx 2.09\\cdot 10^{-6} \\text{ J}$."
+            },
+            {
+                test: 6, questionNumber: 6,
+                question: "Một tụ điện có điện dung $\\small C=10\\text{ }\\mu\\text{F}$, được tích điện lượng $\\small q=3.10^{-3}\\text{ C}$. Sau đó, các bản của tụ điện được nối với nhau bằng một dây dẫn. Tìm nhiệt lượng tỏa ra trong dây dẫn khi tụ điện phóng điện.",
+                options: [
+                    { text: "0.35 J", isCorrect: false },
+                    { text: "0.45 J", isCorrect: true },
+                    { text: "0.55 J", isCorrect: false },
+                    { text: "3.65 J", isCorrect: false }
+                ],
+                solution: "Nhiệt lượng tỏa ra: $\\small Q_{\\text{nhiệt}} = W = \\frac{1}{2}\\frac{q^2}{C}$. Thay số $\\small W = \\frac{1}{2} \\frac{(3\\cdot 10^{-3})^2}{10\\cdot 10^{-6}} = 0.45 \\text{ J}$."
+            },
+            {
+                test: 6, questionNumber: 7,
+                question: "Tụ điện phẳng $\\small C=5\\text{ }\\mu\\text{F}$ mắc vào nguồn $\\small U=12\\text{ V}$, sau đó ngắt khỏi nguồn rồi nhúng vào điện môi lỏng có $\\small \\epsilon=4$. Hiệu điện thế giữa hai bản khi đó là bao nhiêu?",
+                options: [
+                    { text: "2 V", isCorrect: false },
+                    { text: "3 V", isCorrect: true },
+                    { text: "4 V", isCorrect: false },
+                    { text: "5 V", isCorrect: false }
+                ],
+                solution: "Sau khi ngắt khỏi nguồn, điện tích $\\small Q$ không đổi. Hiệu điện thế mới $\\small U' = \\frac{U}{\\epsilon}$. $\\small U' = \\frac{12}{4} = 3 \\text{ V}$."
+            },
+            {
+                test: 6, questionNumber: 8,
+                question: "Hai quả cầu kim loại bán kính $\\small R_{1}=7\\text{ cm}$, $\\small R_{2}=4$ cm được nối với nhau bằng một sợi dây dẫn có điện dung không đáng kể và được tích một điện lượng $\\small Q=13.10^{-8}\\text{ C}$. Tính điện tích của quả cầu 1.",
+                options: [
+                    { text: "$3,58.10^{-8} \\text{ C}$", isCorrect: false },
+                    { text: "$4,84.10^{-8} \\text{ C}$", isCorrect: false },
+                    { text: "$8,27.10^{-8} \\text{ C}$", isCorrect: true },
+                    { text: "$9,89.10^{-8} \\text{ C}$", isCorrect: false }
+                ],
+                solution: "Điện tích trên quả cầu 1: $\\small Q_1 = \\frac{R_1}{R_1+R_2} Q$. $\\small Q_1 = \\frac{7}{7+4} \\cdot 13\\cdot 10^{-8} = \\frac{7}{11} \\cdot 13\\cdot 10^{-8} \\approx 8.27\\cdot 10^{-8} \\text{ C}$."
+            },
+            {
+                test: 6, questionNumber: 9,
+                question: "Cho hai mặt phẳng song song vô hạn mang điện đều trái dấu nhau mật độ điện mặt bằng nhau. Người ta lấp đầy giữa hai mặt phẳng đó một lớp điện môi dày $\\small d=4$ mm và có hằng số điện môi $\\small \\epsilon=6,5$. Hiệu điện thế giữa hai mặt phẳng là $\\small 2000$ V. Xác định mật độ điện tích liên kết trên bề mặt chất điện môi.",
+                options: [
+                    { text: "$0,42.10^{-5} \\text{ C/m}^2$", isCorrect: false },
+                    { text: "$1,52.10^{-5} \\text{ C/m}^2$", isCorrect: false },
+                    { text: "$2,44.10^{-5} \\text{ C/m}^2$", isCorrect: true },
+                    { text: "$5,65.10^{-5} \\text{ C/m}^2$", isCorrect: false }
+                ],
+                solution: "Mật độ điện tích liên kết $\\small \\sigma' = \\frac{(\\epsilon-1)\\epsilon_{0}U}{d}$. Tương tự Câu 9 Đề 5 nhưng $\\small U=2000\\text{ V}$ (gấp đôi). $\\small \\sigma' \\approx 2.44\\cdot 10^{-5} \\text{ C/m}^2$."
+            },
+            {
+                test: 6, questionNumber: 10,
+                question: "Một electron sau khi được gia tốc bằng hiệu điện thế $\\small U=500\\text{ V}$ thì chuyển động song song với một dây dẫn thẳng dài và cách dây dẫn một khoảng $\\small a=6$ mm. Tìm lực tác dụng lên electron nếu cho dòng điện $\\small I=10\\text{ A}$ chạy qua dây điện.",
+                options: [
+                    { text: "$7,07.10^{-16} \\text{ N}$", isCorrect: true },
+                    { text: "$4,33.10^{-16} \\text{ N}$", isCorrect: false },
+                    { text: "$5,33.10^{-16} \\text{ N}$", isCorrect: false },
+                    { text: "$6,33.10^{-16} \\text{ N}$", isCorrect: false }
+                ],
+                solution: "Lực Lorentz: $\\small F = |e| v B$. Vận tốc: $\\small v=\\sqrt{\\frac{2|e|U}{m}}$. Cảm ứng từ của dây dẫn: $\\small B=\\frac{\\mu_{0} I}{2\\pi a}$. Thay $\\small B$ và $\\small v$ vào $\\small F$ ta có $\\small F \\approx 7.07\\cdot 10^{-16} \\text{ N}$."
+            }
+        ];
+
+        // GLOBAL VARIABLES
+        let questionStates = {}; // To track if a question has been answered
+
+        // Helper function to render KaTeX math expressions
+        function renderMath() {
+            renderMathInElement(document.body, {
+                // Configs from KaTeX auto-render extension
+                delimiters: [
+                    { left: "$$", right: "$$", display: true },
+                    { left: "$", right: "$", display: false },
+                    { left: "\\small ", right: "", display: false },
+                    { left: "\\large ", right: "", display: false }
+                ],
+                // Add your own custom macros here
+                macros: {
+                    "\\ne": "\\neq"
+                },
+                throwOnError: false
+            });
+        }
+
+        // Function to render all questions
+        function renderQuestions() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+            
+            physicsQuestions.forEach((q, index) => {
+                const qId = `q-${q.test}-${q.questionNumber}`;
+                
+                // Card Container
+                const card = document.createElement('div');
+                card.id = qId;
+                card.className = 'bg-white p-6 rounded-xl shadow-lg border border-gray-200 transition duration-300 hover:shadow-xl';
+
+                // Question Title/Header
+                const header = document.createElement('h2');
+                header.className = 'text-lg sm:text-xl font-bold mb-4 text-gray-800';
+                header.innerHTML = `Đề ${q.test} - Câu ${q.questionNumber}: ${q.question}`;
+                card.appendChild(header);
+
+                // Options Container
+                const optionsDiv = document.createElement('div');
+                optionsDiv.className = 'space-y-3 mb-6';
+
+                q.options.forEach((opt, optIndex) => {
+                    const optionButton = document.createElement('button');
+                    optionButton.className = 'w-full text-left p-3 rounded-lg border-2 border-gray-300 hover:border-blue-500 transition duration-150 ease-in-out font-medium text-gray-700 bg-gray-50';
+                    optionButton.innerHTML = `${String.fromCharCode(65 + optIndex)}. ${opt.text}`;
+                    optionButton.setAttribute('data-q-id', qId);
+                    optionButton.setAttribute('data-is-correct', opt.isCorrect);
+                    optionButton.onclick = handleAnswerClick;
+                    optionsDiv.appendChild(optionButton);
+                });
+
+                card.appendChild(optionsDiv);
+
+                // Solution/Rationale Container (Initially hidden)
+                const rationaleDiv = document.createElement('div');
+                rationaleDiv.id = `${qId}-rationale`;
+                rationaleDiv.className = 'mt-4 p-4 border-l-4 border-green-500 bg-green-50 rounded-lg hidden';
+
+                const rationaleTitle = document.createElement('p');
+                rationaleTitle.className = 'font-semibold text-green-700 mb-2';
+                rationaleTitle.textContent = '✅ Giải thích:';
+                rationaleDiv.appendChild(rationaleTitle);
+
+                const solutionText = document.createElement('p');
+                solutionText.className = 'text-sm text-gray-800';
+                solutionText.innerHTML = q.solution;
+                rationaleDiv.appendChild(solutionText);
+
+                card.appendChild(rationaleDiv);
+                container.appendChild(card);
+            });
+
+            // Re-render math after all elements are added
+            // Using a slight delay to ensure KaTeX is fully loaded
+            setTimeout(renderMath, 100);
+        }
+
+        // Event handler for option clicks
+        function handleAnswerClick(event) {
+            const button = event.target.closest('button');
+            const qId = button.getAttribute('data-q-id');
+            
+            // Check if already answered
+            if (questionStates[qId]) return;
+
+            // Mark as answered
+            questionStates[qId] = true;
+
+            const isCorrect = button.getAttribute('data-is-correct') === 'true';
+            const optionsDiv = button.parentNode;
+            const rationaleDiv = document.getElementById(`${qId}-rationale`);
+
+            // Disable all buttons for this question and show correct/incorrect state
+            optionsDiv.querySelectorAll('button').forEach(btn => {
+                btn.disabled = true;
+                const btnIsCorrect = btn.getAttribute('data-is-correct') === 'true';
+
+                btn.classList.remove('border-gray-300', 'hover:border-blue-500', 'bg-gray-50');
+                
+                if (btnIsCorrect) {
+                    // Highlight correct answer in green
+                    btn.classList.add('border-green-500', 'bg-green-100', 'text-green-800', 'shadow-md');
+                } else if (btn === button) {
+                    // Highlight user's incorrect choice in red
+                    btn.classList.add('border-red-500', 'bg-red-100', 'text-red-800', 'shadow-md');
+                } else {
+                    // Dim incorrect choices
+                    btn.classList.add('border-gray-200', 'bg-gray-100', 'text-gray-500');
+                }
+            });
+
+            // Show rationale/solution
+            if (rationaleDiv) {
+                rationaleDiv.classList.remove('hidden');
+            
+                // Update color based on user's answer
+                if (isCorrect) {
+                    rationaleDiv.classList.remove('border-red-500', 'bg-red-50');
+                    rationaleDiv.classList.add('border-green-500', 'bg-green-50');
+                    rationaleDiv.querySelector('.font-semibold').textContent = '✅ Chính xác! Giải thích:';
+                } else {
+                    rationaleDiv.classList.remove('border-green-500', 'bg-green-50');
+                    rationaleDiv.classList.add('border-red-500', 'bg-red-50');
+                    rationaleDiv.querySelector('.font-semibold').textContent = '❌ Chưa chính xác. Đáp án đúng và Giải thích:';
+                }
+            }
+
+            // Re-render math in the newly visible rationale div
+            setTimeout(renderMath, 50);
+        }
+        
+        // Initial setup on window load
+        window.onload = renderQuestions;
+
+    </script>
+</body>
+</html>
